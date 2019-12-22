@@ -1,6 +1,7 @@
 package com.database.model;
 
 import com.database.model.entity.UserAccount;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Getter
 public class UserPrincipal implements UserDetails {
 
     private UserAccount userAccount;
@@ -41,10 +43,6 @@ public class UserPrincipal implements UserDetails {
                 .collect(Collectors.toList());
     }
 
-    public UserAccount getUserAccount() {
-        return userAccount;
-    }
-
     @Override
     public String getPassword() {
         return this.userAccount.getPassword();
@@ -57,7 +55,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return !this.userAccount.isAccountExpire();
+        return !this.userAccount.isAccountExpired();
     }
 
     @Override
@@ -67,7 +65,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return !this.userAccount.isAccountExpire();
+        return !this.userAccount.isAccountExpired();
     }
 
     @Override

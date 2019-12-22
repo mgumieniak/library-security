@@ -1,7 +1,7 @@
 package com.database.service;
 
-import com.database.UserPrincipalDto;
 import com.database.client.authorization.AuthorizationClient;
+import com.database.models.UserPrincipalDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
