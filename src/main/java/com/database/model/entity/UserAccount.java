@@ -3,16 +3,22 @@ package com.database.model.entity;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Entity
 public class UserAccount {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String userAccountId;
 
     private String username;
